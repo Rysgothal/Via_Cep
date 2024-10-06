@@ -1,28 +1,24 @@
-# Atividade 01
+# Consulta de CEP
+Este projeto é uma aplicação web que permite a consulta de CEPs (Códigos de Endereçamento Postal) do Brasil. A aplicação utiliza a API do ViaCEP para realizar essas consultas.
+Nada de mais, apenas inserir a busca do CEP desejado no primeiro campo e ele preencherá os outros automaticamente
 
-This template should help get you started developing with Vue 3 in Vite.
+## IDE Recomendada
 
-## Recommended IDE Setup
+[VSCode](https://code.visualstudio.com/), utilizada para fazer essa aplicação
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Preparar o projeto
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilar e Hot-Reload para Desenvolvimento
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilar e Minificar para Produção
 
 ```sh
 npm run build
