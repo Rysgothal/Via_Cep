@@ -14,6 +14,8 @@ const sucessMessage = async () => {
 }
 
 const fetchAddress = async () => {
+  console.log('Buscando informações...')
+
   if (cep.value.length === 8) {
     try {
       const response = await axios.get(`https://viacep.com.br/ws/${cep.value}/json/`)
@@ -49,34 +51,38 @@ const validateForm = () => {
     </div>
 
     <div style="padding: 10px;"></div>
-    
+
     <form @submit.prevent="validateForm">
-      <div style="padding: 5px; border-style: dashed; border-width: 1px ;border-color: aliceblue;">
+      <div style="padding: 20px; border-style: dashed; border-width: 1px; border-color: cornflowerblue;">
         <div style="flex-direction: column; align-items: center;">
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="cep" style="flex: 1; text-align: left;">CEP:</label>
-            <input id="cep" v-model="cep" @blur="fetchAddress" @input="fetchAddress" maxlength="8" required style="flex: 2";/>
+            <input id="cep" v-model="cep" maxlength="8" style="flex: 2px;" @blur="fetchAddress" @input="fetchAddress"/>
           </div>
+
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="logradouro" style="flex: 1; text-align: left;">Logradouro:</label>
-            <input id="logradouro" v-model="logradouro" readonly required style="flex: 2;" />
+            <input id="logradouro" v-model="logradouro" readonly required style="flex: 2px;" />
           </div>
+
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="cidade" style="flex: 1; text-align: left;">Cidade:</label>
-            <input id="cidade" v-model="cidade" readonly required style="flex: 2;" />
+            <input id="cidade" v-model="cidade" readonly required style="flex: 2px;" />
           </div>
+
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="uf" style="flex: 1; text-align: left;">UF:</label>
-            <input id="uf" v-model="uf" readonly required style="flex: 2;" />
+            <input id="uf" v-model="uf" readonly required style="flex: 2px;" />
           </div>
+
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="numero" style="flex: 1; text-align: left;">Número:</label>
-            <input id="numero" v-model="numero" @input="validateForm" required style="flex: 2;" />
+            <input id="numero" v-model="numero" @input="validateForm" required style="flex: 2px;" />
           </div>
         </div>
         <div style="display: flex; justify-content: flex-end; align-items: center;">
             <button type="submit" :disabled="!isFormValid" v-on:click="sucessMessage">Concluir</button>
-        </div>
+        </div>       
       </div>
     </form>
   </div>
