@@ -14,7 +14,10 @@ const sucessMessage = async () => {
 }
 
 const fetchAddress = async () => {
-  console.log('Buscando informações...')
+  logradouro.value = ''
+      cidade.value = ''
+      uf.value = ''
+      numero.value = ''
 
   if (cep.value.length === 8) {
     try {
@@ -27,11 +30,6 @@ const fetchAddress = async () => {
     } catch (error) {
       console.error('Inconsistência ao buscar informações:', error)
     }
-  } else {
-      logradouro.value = ''
-      cidade.value = ''
-      uf.value = ''
-      numero.value = ''
   }
 }
 
@@ -45,8 +43,14 @@ const validateForm = () => {
   <div>
     <div style="background-color: antiquewhite; padding: 1px; border-radius: 10px;">
         <div style="background-color: black; border-radius: 10px; padding: 15px;">
-          <h1 style="text-align: center; color: beige; font-size: xxx-large; font-weight: bold;">Via CEP</h1>
-          <a class="Green" href="https://viacep.com.br" target="_blank" rel="noopener">Via CEP - Consulte CEPs de todo o Brasil</a>
+          <h1 style="text-align: center; color: beige; font-size: xxx-large; font-weight: bold;">CEP Search</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                <a href="https://viacep.com.br" target="_blank" rel="noopener">
+                <span class="material-symbols-outlined" style="font-size: 30px; color: beige;">link</span>
+                </a>
+              <a class="Green" href="https://viacep.com.br" target="_blank" rel="noopener">Via CEP - Consulte CEPs de todo o Brasil</a>
+            </div>
         </div>
     </div>
 
@@ -59,7 +63,6 @@ const validateForm = () => {
             <label for="cep" style="flex: 1; text-align: left;">CEP:</label>
             <input id="cep" v-model="cep" maxlength="8" style="flex: 2px;" @blur="fetchAddress" @input="fetchAddress"/>
           </div>
-
           <div style="margin-bottom: 10px; display: flex; justify-content: space-between; width: 100%; max-width: 400px;">
             <label for="logradouro" style="flex: 1; text-align: left;">Logradouro:</label>
             <input id="logradouro" v-model="logradouro" readonly required style="flex: 2px;" />
